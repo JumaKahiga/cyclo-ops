@@ -14,7 +14,7 @@ references:
     run:
       name: Build and Tag Cyclops Image
       command: |
-        docker build -t mwangik/cyclops:latest
+        docker build -t mwangik/cyclops:latest .
 
   tag_cyclops_image: &tag_cyclops_image
     run:
@@ -58,6 +58,7 @@ jobs:
     machine: true
     working_directory: *working_directory
     steps:
+      - checkout
       - *build_cyclops_image
       - *tag_cyclops_image
       - *run_unit_tests
