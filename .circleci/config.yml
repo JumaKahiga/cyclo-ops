@@ -45,3 +45,20 @@ references:
       name: Run Integration Tests
       command: |
         docker-compose -f tests/docker-compose.yml run tests-integration
+
+executors:
+  linux-machine-executor:
+    machine:
+      image: ubuntu-1604:202007-01
+
+
+jobs:
+  service_build_test:
+    machine: true
+    working_directory: *working_directory
+    steps:
+      - *build_cyclops_image
+      - *tag_cyclops_image
+      - *run_unit_tests
+      - *run_integration_tests
+      - *push_cyclops_image

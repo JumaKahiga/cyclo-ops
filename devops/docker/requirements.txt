@@ -2,4 +2,5 @@ Flask
 flask-apispec
 gunicorn
 marshmallow
+nosetest
 pytest

@@ -1,1 +1,20 @@
 version: "3.7"
+
+services:
+  tests-unit: &tests-unit
+  image: mwangik/cyclops:${CIRCLE_SHA1:-latest}
+  command: nosetests -e integration --verbosity 3 ./tests
+  volumes:
+    - ../:/cyclops
+  stdin_open: true
+  tty: true
+
+  tests-integration: &tests-integration
+    <<: *tests-unit
+    command: >
+      nosetests -e unit --verbosity 3 ./tests
+
+  tests-all:
+    <<: *tests-integration
+    command: >
+      nosetests --verbosity 3 ./tests
