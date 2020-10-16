@@ -16,5 +16,4 @@ services:
 
   tests-all:
     <<: *tests-integration
-    command: >
-      nosetests --verbosity 3 ./tests
+    command: nosetests --verbosity 3 ./tests
