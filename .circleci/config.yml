@@ -63,3 +63,11 @@ jobs:
       - *run_unit_tests
       - *run_integration_tests
       - *push_cyclops_image
+
+
+workflows:
+  version: 2
+  build_test_deploy:
+    jobs:
+      - service_build_test
+
