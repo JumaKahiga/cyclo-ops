@@ -32,7 +32,7 @@ references:
         if [ "${CIRCLE_BRANCH}" == "main" ]
         then
           docker push mwangik/cyclops:latest
-        else:
+        else
           docker push mwangik/cyclops:${CIRCLE_BRANCH}
         fi
 
