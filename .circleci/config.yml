@@ -27,6 +27,7 @@ references:
     run:
       name: Push Cyclops Image
       command: |
+        echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
         docker push mwangik/cyclops:${CIRCLE_SHA1}
         if [ "${CIRCLE_BRANCH}" == "main" ]
         then
