@@ -1,0 +1,21 @@
+version: "2.2"
+
+services:
+
+  tests-unit: &tests-unit
+    image: mwangik/cyclops:${CIRCLE_SHA1:-latest}
+    command: nosetests -e integration --verbosity 3 ./tests
+    tty: true
+    environment:
+      - FLASK_ENV=development
+    volumes:
+      - ../:/cyclops
+
+  tests-integration: &tests-integration
+    <<: *tests-unit
+    command: >
+      nosetests -e unit --verbosity 3 ./tests
+
+  tests-all:
+    <<: *tests-integration
+    command: nosetests --verbosity 3 ./tests
