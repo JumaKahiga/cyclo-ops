@@ -26,13 +26,14 @@ references:
   push_cyclops_image: &push_cyclops_image
     run:
       name: Push Cyclops Image
-      command: docker push mwangik/cyclops:${CIRCLE_SHA1}
-      if [ "${CIRCLE_BRANCH}" == "main" ]
-      then
-        docker push mwangik/cyclops:latest
-      else:
-        docker push mwangik/cyclops:${CIRCLE_BRANCH}
-      fi
+      command: |
+        docker push mwangik/cyclops:${CIRCLE_SHA1}
+        if [ "${CIRCLE_BRANCH}" == "main" ]
+        then
+          docker push mwangik/cyclops:latest
+        else:
+          docker push mwangik/cyclops:${CIRCLE_BRANCH}
+        fi
 
   run_unit_tests: &run_unit_tests
     run:
