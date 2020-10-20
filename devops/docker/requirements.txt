@@ -4,3 +4,4 @@ gunicorn
 marshmallow
 nose
 pytest
+scrapy
