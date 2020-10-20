@@ -15,7 +15,7 @@ class TestCycloneSpider(unittest.TestCase):
         self.spider = crawler._create_spider(
             custom_settings={'ROBOTSTXT_OBEY': False})
 
-    @unittest.expectedFailure
+    @unittest.skip("skip until deferred testcase is implemented")
     def test_parse_method(self):
         headers = {'User-Agent': 'cyclone-project (+http://www.twitter.com)'}
 
