@@ -46,7 +46,7 @@ references:
     run:
       name: Run Integration Tests
       command: |
-        docker-compose -f tests/docker-compose.yml run tests-integration
+        docker-compose -f tests/docker-compose.yml run tests-all
 
 executors:
   linux-machine-executor:
