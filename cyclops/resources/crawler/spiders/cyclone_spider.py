@@ -1,6 +1,9 @@
+"""
+Cyclone spider
+"""
+
 import logging
 
-from scrapy.http import Request
 from scrapy.spiders import Spider
 
 logger = logging.getLogger(__name__)
@@ -9,6 +12,7 @@ logger = logging.getLogger(__name__)
 class CycloneSpider(Spider):
     """Scrap cyclone data from NOAA Satelites and Information
     """
+
     name = 'cyclone_data'
     start_urls = [
         'https://rammb-data.cira.colostate.edu/tc_realtime/index.asp'
