@@ -22,6 +22,4 @@ EXPOSE 5000
 
 COPY ./devops/docker/entry_point.sh /home/docker/entry_point.sh
 
-ENTRYPOINT ["sh"]
-
-CMD ["/home/docker/entry_point.sh"]
+ENTRYPOINT ["sh", "/home/docker/entry_point.sh"]
