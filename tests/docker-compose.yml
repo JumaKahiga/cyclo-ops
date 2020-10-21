@@ -25,6 +25,6 @@ services:
   database:
     restart: "no"
     image: postgres:latest
-    env_file: devops/env_files/database.conf
+    env_file: ../devops/env_files/database.conf
     ports:
       - '5432:5432'
