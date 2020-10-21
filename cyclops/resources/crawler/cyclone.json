@@ -1,0 +1,8 @@
+[
+{"basin": "Atlantic", "storm_url": "https://rammb-data.cira.colostate.edu/tc_realtime/storm.asp?storm_identifier=al272020", "storm_identifier": "AL272020 - Tropical Storm EPSILON", "img_url": "https://rammb-data.cira.colostate.edu/tc_realtime//tc_realtime/products/storms/2020al27/4kmirimg/2020al27_4kmirimg_202010201720.gif"},
+{"basin": "Eastern Pacific", "storm_url": null, "storm_identifier": null, "img_url": null},
+{"basin": "Central Pacific", "storm_url": null, "storm_identifier": null, "img_url": null},
+{"basin": "Western Pacific", "storm_url": "https://rammb-data.cira.colostate.edu/tc_realtime/storm.asp?storm_identifier=wp192020", "storm_identifier": "WP192020 - Tropical Storm SAUDEL", "img_url": "https://rammb-data.cira.colostate.edu/tc_realtime//tc_realtime/products/storms/2020wp19/4kmirimg/2020wp19_4kmirimg_202010201640.gif"},
+{"basin": "North Indian Ocean", "storm_url": "https://rammb-data.cira.colostate.edu/tc_realtime/storm.asp?storm_identifier=io922020", "storm_identifier": "IO922020 - INVEST", "img_url": "https://rammb-data.cira.colostate.edu/tc_realtime//tc_realtime/products/storms/2020io92/4kmirimg/2020io92_4kmirimg_202010201700.gif"},
+{"basin": "Southern Hemisphere", "storm_url": null, "storm_identifier": null, "img_url": null}
+]

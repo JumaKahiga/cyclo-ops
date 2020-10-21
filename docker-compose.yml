@@ -1,8 +1,19 @@
 version: "3.7"
 
 services:
+  database:
+    restart: "no"
+    image: postgres:latest
+    env_file: devops/env_files/database.conf
+    ports:
+      - '5432:5432'
+
   cyclops:
     build:
       context: .
+    environment:
+      - SQLALCHEMY_DATABASE_URI=postgresql://postgres:password@database/cyclops_db
     ports:
       - "5000:5000"
+    depends_on:
+      - database

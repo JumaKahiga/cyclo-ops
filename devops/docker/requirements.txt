@@ -1,7 +1,11 @@
+alembic
 Flask
 flask-apispec
+flask-sqlalchemy
+flask-migrate
 gunicorn
 marshmallow
 nose
+psycopg2-binary==2.7.7
 pytest
 scrapy
