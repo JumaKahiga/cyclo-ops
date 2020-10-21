@@ -10,6 +10,8 @@ services:
       - FLASK_ENV=development
     volumes:
       - ../:/cyclops
+    depends_on:
+      - database
 
   tests-integration: &tests-integration
     <<: *tests-unit
@@ -19,3 +21,10 @@ services:
   tests-all:
     <<: *tests-integration
     command: nosetests --verbosity 3 ./tests
+
+  database:
+    restart: "no"
+    image: postgres:latest
+    env_file: ../devops/env_files/database.conf
+    ports:
+      - '5432:5432'
