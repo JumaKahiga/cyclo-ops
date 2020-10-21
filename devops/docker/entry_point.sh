@@ -11,5 +11,9 @@ python -m flask db upgrade
 
 echo "Database setup successful ........."
 
-gunicorn -w 2 -b 0.0.0.0:5000 --timeout 60 --access-logformat "%(h)s %(l)s %(t)s" "%(r)s" "%(s)s %(b)sB %(L)ss" "%(a)s" \
+# gunicorn -w 2 -b 0.0.0.0:5000 --timeout 60 \
+# --access-logformat "%(h)s %(l)s %(t)s" "%(r)s" "%(s)s %(b)sB %(L)ss" "%(a)s" \
+# --access-logfile - cyclops.unicorn:app
+
+gunicorn -w 2 -b 0.0.0.0:5000 --timeout 60 --access-logformat STRING \
 --access-logfile - cyclops.unicorn:app

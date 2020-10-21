@@ -20,9 +20,4 @@ ENV FLASK_APP cyclops.unicorn:app
 ENV FLASK_RUN_PORT 5000
 EXPOSE 5000
 
-
-CMD [\
-	"gunicorn", "-w", "2", "-b", "0.0.0.0:5000", "--timeout", "60", \
-	"--access-logformat", "%(h)s %(l)s %(t)s \"%(r)s\" %(s)s %(b)sB %(L)ss \"%(a)s\"", \
-	"--access-logfile", "-", "cyclops.unicorn:app" \
-	]
+ENTRYPOINT ["sh", "/home/docker/entry_point.sh"]
