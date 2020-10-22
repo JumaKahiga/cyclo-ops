@@ -8,7 +8,7 @@ services:
     tty: true
     environment:
       - FLASK_ENV=development
-      - SQLALCHEMY_DATABASE_URI=postgresql://root@localhost/circle_test
+      - SQLALCHEMY_DATABASE_URI=postgresql://root@localhost/cyclops_test_db
     volumes:
       - ../:/cyclops
     depends_on:
@@ -26,6 +26,6 @@ services:
   database:
     restart: "no"
     image: postgres:latest
-    env_file: ../devops/env_files/database.conf
+    env_file: ../devops/env_files/test_database.conf
     ports:
       - '5432:5432'
