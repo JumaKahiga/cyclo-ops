@@ -8,7 +8,7 @@ services:
     tty: true
     environment:
       - FLASK_ENV=development
-      - SQLALCHEMY_DATABASE_URI=postgresql://root@database/cyclops_test_db
+      - SQLALCHEMY_DATABASE_URI=postgresql://postgres@database/cyclops_test_db
     volumes:
       - ../:/cyclops
     depends_on:
