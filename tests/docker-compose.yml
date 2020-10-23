@@ -12,7 +12,8 @@ services:
     volumes:
       - ../:/cyclops
     depends_on:
-      - database
+      database:
+        condition: service_healthy
 
   tests-integration: &tests-integration
     <<: *tests-unit
