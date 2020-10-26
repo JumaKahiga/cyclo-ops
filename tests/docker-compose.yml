@@ -1,6 +1,13 @@
-version: "2.2"
+version: "3.7"
 
 services:
+
+  database:
+    restart: "no"
+    image: postgres:latest
+    env_file: ../devops/env_files/test_database.conf
+    ports:
+      - '5432:5432'
 
   tests-unit: &tests-unit
     image: mwangik/cyclops:${CIRCLE_SHA1:-latest}
@@ -12,8 +19,7 @@ services:
     volumes:
       - ../:/cyclops
     depends_on:
-      database:
-        condition: service_healthy
+      - database
 
   tests-integration: &tests-integration
     <<: *tests-unit
@@ -23,10 +29,3 @@ services:
   tests-all:
     <<: *tests-integration
     command: nosetests --verbosity 3 ./tests
-
-  database:
-    restart: "no"
-    image: postgres:latest
-    env_file: ../devops/env_files/test_database.conf
-    ports:
-      - '5432:5432'
