@@ -2,19 +2,28 @@ version: "2.2"
 
 services:
 
+  database:
+    restart: "no"
+    image: postgres:latest
+    env_file: ../devops/env_files/test_database.conf
+    ports:
+      - '5432:5432'
+
   tests-unit: &tests-unit
     image: mwangik/cyclops:${CIRCLE_SHA1:-latest}
-    command: nosetests -e integration --verbosity 3 ./tests
+    entrypoint: nosetests -e integration --verbosity 3 ./tests
     tty: true
     environment:
       - FLASK_ENV=development
+      - SQLALCHEMY_DATABASE_URI=postgresql://postgres:password@database/cyclops_test_db
     volumes:
       - ../:/cyclops
+    depends_on:
+      - database
 
   tests-integration: &tests-integration
     <<: *tests-unit
-    command: >
-      nosetests -e unit --verbosity 3 ./tests
+    entrypoint: nosetests -e unit --verbosity 3 ./tests
 
   tests-all:
     <<: *tests-integration
