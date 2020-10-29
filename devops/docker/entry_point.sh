@@ -11,4 +11,4 @@ python -m flask db upgrade
 echo "Database setup successful ........."
 
 
-gunicorn -b 0.0.0.0:5000 -w 2 --timeout 60 --access-logformat STRING --access-logfile - --preload cyclops.unicorn:app
+gunicorn -b 0.0.0.0:5000 -w 2 --timeout 60 cyclops.unicorn:app
