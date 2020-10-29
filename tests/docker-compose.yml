@@ -12,7 +12,8 @@ services:
   tests-unit: &tests-unit
     image: mwangik/cyclops:${CIRCLE_SHA1:-latest}
     # command: ["wait-for-postgres", "database", "nosetests", "-e", "integration", "--verbosity", "3", "./tests"]
-    entrypoint: nosetests -e integration --verbosity 3 ./tests
+    command: >
+      nosetests -e integration --verbosity 3 ./tests
     tty: true
     environment:
       - FLASK_ENV=development
